@@ -1,0 +1,30 @@
+{
+    "usuarios":
+        [
+            {
+                "nombre":"mateo",
+                "apellido":"gonzalez",
+                "dni": 44969246
+            },
+            {
+                "nombre": "jose",
+                "apellido": "perez",
+                "dni": 11787567
+            },
+            {
+                "nombre": "tata",
+                "apellido": "tete",
+                "dni": "44111333"
+            },
+            {
+                "nombre": "felipe",
+                "apellido": "bocelo",
+                "dni": 45654765
+            },
+            {
+                "nombre": "ramiro",
+                "apellido": "moya",
+                "dni": 45653212
+            }
+        ]
+}
