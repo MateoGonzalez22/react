@@ -1,8 +1,37 @@
 import { Button, Box, Grid } from "@mui/material";
 import { hover } from "@testing-library/user-event/dist/hover";
 import data from "./data.json"
+import List from "./List";
+import "./App.css"
 
 function App() {
+
+    return(
+
+        <div className="div">
+
+            <List/>
+
+        </div>
+
+        
+
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     console.log(data.usuarios)
 
     const style = 
@@ -21,13 +50,14 @@ function App() {
         }
     }
 
+
     return (
 
         <Box sx={{flexGrow: 1}} style={style.box}>
             
             <Grid container spacing={2}>
 
-                <Grid item xs={3}>
+                <Grid item xs={3} md={2}>
 
                     <div style={style.div}>
                         Nombre
@@ -36,7 +66,7 @@ function App() {
 
                 </Grid>
 
-                <Grid item xs={3}>
+                <Grid item xs={3} md={2}>
 
                     <div style={style.div}>
                         Apellido
@@ -45,7 +75,7 @@ function App() {
 
                 </Grid>
 
-                <Grid item xs={3}>
+                <Grid item xs={3} md={2}>
 
                     <div style={style.div}>
                         DNI
@@ -53,18 +83,18 @@ function App() {
 
                 </Grid>
 
+                <Grid item xs={3} md={2}>
+
+                    <div style={style.div}>
+                        Fecha Nacimiento
+                    </div>
+
+                </Grid>
+
             </Grid>
 
         </Box>
-
-        
-        
-        
-
-       
-
-
-    )
+    )*/
 }
 
 export default App;

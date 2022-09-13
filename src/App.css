@@ -1,0 +1,47 @@
+.div{
+    background-color: rgb(46, 44, 44);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.grid{
+    align-items: center;
+}
+
+.titulo{
+    background-color: burlywood;
+    border-radius: 20px;
+    padding: 16px;
+    margin-top: 10px;
+}
+
+.box{
+
+    display: flex;
+    background-color: white;
+    padding: 16px;
+    margin-top: 10px;
+    
+    
+    
+}
+
+.box:hover{
+    background-color: #DCE1E9;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.box:active{
+    background-color: #a5aebe;
+}
+
+.text{
+    background-color: transparent;
+    justify-content: center;
+    display: flex;
+    pointer-events: none;
+}
