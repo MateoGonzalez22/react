@@ -2,7 +2,7 @@ import { Button, Dialog, DialogActions, DialogTitle, Grid, TextField, Typography
 import { useEffect, useState } from "react";
 import data from "../data.json"
 import CloseIcon from '@mui/icons-material/Close';
-
+//hogsdgs
 export default function DialogPage(socio) {
     socio = socio.socio
     return (
