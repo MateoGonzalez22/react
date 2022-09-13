@@ -2,14 +2,14 @@
 
 [
     {
-        "nombre":"mateo",
-        "apellido":"gonzalez",
+        "nombre":"Mateo",
+        "apellido":"Gonzalez",
         "dni": 44969246,
         "fecha": "23/07/2003"
     },
     {
-        "nombre": "jose",
-        "apellido": "perez",
+        "nombre": "Jose",
+        "apellido": "Perez",
         "dni": 11787567,
         "fecha": "23/07/2003"
     },

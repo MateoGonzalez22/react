@@ -1,40 +1,26 @@
-import { Button, Dialog } from "@mui/material";
-import { useState } from "react";
+import { Button, Dialog, DialogActions, DialogTitle, Grid, TextField } from "@mui/material";
+import { useEffect, useState } from "react";
 import data from "../data.json"
+import CloseIcon from '@mui/icons-material/Close';
 
-export default function DialogPage(dni) {
-    const [openDialog, setOpenDialog] = useState(false)
-
-
-
-    const handleOpen = () => {
-        setOpenDialog(true)
-    }
-    const handleClose = () => {
-        setOpenDialog(false)
-    }
-
-
-
+export default function DialogPage(socio) {
+    socio = socio.socio
     return (
-        
-            
-        <Dialog fullWidth={true} open={openDialog} onClose={handleClose}>
-            {data.map(user => {
-                if (user.dni != dni) return null
-                return (
-                    <>
-                        <div>{user.nombre}</div>
-                        <div>{user.apellido}</div>
-                        <div>{user.dni}</div>
-                        <div>{user.fecha}</div>
-                    </>
-                )
-            })}
-        </Dialog>
-        
+        <div>
+            <DialogTitle style={{ top: "2px", left:"2px"}}>{socio.nombre} {socio.apellido}</DialogTitle>
+            <Grid container>
+
+                <Grid item >
+                    
+                </Grid>
+
+            </Grid>
+
+            <DialogActions>
+                <Button style={{ background: "black", color: "white", marginRight: 20 }}>Send</Button>
+            </DialogActions>
+        </div>
 
     )
-
 
 }
