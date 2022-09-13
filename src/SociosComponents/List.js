@@ -1,10 +1,9 @@
 import { Button, Card, Typography, Box, Grid, Link, TextField, Paper, Divider, IconButton, InputBase, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import { Fragment, useState } from "react";
-import UserCard from "./UserCard";
-import data from "./data.json"
-import "./App.css"
+import data from "../utils/data.json"
+import "../App.css"
 import SearchIcon from '@mui/icons-material/Search';
-import DialogPage from "./DialogComponents/DialogPage";
+import DialogPage from "./DialogPage";
 import CloseIcon from '@mui/icons-material/Close';
 
 

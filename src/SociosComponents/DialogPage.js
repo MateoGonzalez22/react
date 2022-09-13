@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogTitle, Grid, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import data from "../data.json"
+import data from "../utils/data.json"
 import CloseIcon from '@mui/icons-material/Close';
 //hogsdgsaf
 export default function DialogPage(socio) {

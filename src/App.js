@@ -1,7 +1,6 @@
 import { Button, Box, Grid } from "@mui/material";
 import { hover } from "@testing-library/user-event/dist/hover";
-import data from "./data.json"
-import List from "./List";
+import List from "./SociosComponents/List";
 import "./App.css"
 
 function App() {
