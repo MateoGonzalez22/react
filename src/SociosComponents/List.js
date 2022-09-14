@@ -87,7 +87,7 @@ export default function List() {
                                     <Grid item xs={3} >
 
                                         <Typography className="text">
-                                            {user.nombre.toUpperCase()}
+                                            {user.nombre}
                                         </Typography>
 
                                     </Grid>
@@ -95,7 +95,7 @@ export default function List() {
                                     <Grid item xs={3}>
 
                                         <Typography className="text">
-                                            {user.apellido.toUpperCase()}
+                                            {user.apellido}
                                         </Typography>
 
                                     </Grid>
