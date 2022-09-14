@@ -25,19 +25,58 @@ export default function List() {
         setOpenDialog(false)
     }
 
+    const handleKeyPress = (e) => {
+        if(e.keyCode === 13){
+            e.preventDefault()
+            showUsers(search)
+            
+        }
+    }
+
+
+    function whatToSearch(search){
+
+        if (search.length == 0) return "all"
+
+        if(search.search(" ") >= 1){
+            var array = search.split(" ")
+            return array
+        }
+    
+        else if(!isNaN(search)) return "dni"
+    
+        return "nombre"
+
+    }
+
+
     function showUsers(search) {
+
+        
+
 
 
         const listaSocios =
 
 
-            <Paper style={{ height: "60vh", overflow: "auto", marginTop: "30px" }}>
+            <Paper style={{ maxHeight: "60vh", overflow: "auto", marginTop: "30px" }}>
 
                 {users.map(user => {
 
-                    if (search.length > 0) {
+                    var queBuscar = whatToSearch(search)
+
+                    if(queBuscar.length == 2){
+                        console.log("entro a == 2")
+                        if(user.nombre != queBuscar[0] && user.apellido != queBuscar[1]) return null
+                        
+                    }else if(queBuscar == "dni"){
+                        console.log("entro a == dni")
+                        if (user.dni != search) return null
+                    }else if(queBuscar == "nombre"){                        
                         if (user.nombre != search) return null
                     }
+
+
                     return (
                         <div>
 
@@ -108,6 +147,7 @@ export default function List() {
                             placeholder="Buscar Socios"
                             inputProps={{ 'aria-label': 'Buscar Socios' }}
                             value={search}
+                            onKeyDown={(e) => handleKeyPress(e)}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                         <Button onClick={() => showUsers(search)} type="submit" sx={{ p: '10px' }} aria-label="search" >
@@ -149,7 +189,7 @@ export default function List() {
 
             {lista}
 
-            <Dialog fullWidth={true} open={openDialog} onClose={handleClose}>
+            <Dialog fullWidth={true} maxWidth="xl" open={openDialog} onClose={handleClose}>
                 
                 <DialogActions style={{position: "absolute", top: "2px", right: "2px"}}>
                     <Button onClick={handleClose}><CloseIcon style={{ fill: "black" }} /></Button>
