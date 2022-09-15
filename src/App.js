@@ -3,11 +3,20 @@ import { hover } from "@testing-library/user-event/dist/hover";
 import List from "./SociosComponents/List";
 import "./App.css"
 import { theme } from "./utils/theme"
-
+import WebFont from 'webfontloader';
+import { useEffect } from "react";
 
 
 
 function App() {
+
+    useEffect(() => {
+        WebFont.load({
+          google: {
+            families: ['Droid Sans', 'Chilanka', "Nabla", "Roboto"]
+          }
+        });
+       }, []);
 
 
     return (

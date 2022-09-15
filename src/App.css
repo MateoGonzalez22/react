@@ -1,3 +1,4 @@
+
 .div{
     background-color: #2e2c2c;
     height: 100vh;
@@ -13,9 +14,10 @@
 }
 
 .titulo{
-    background-color: rgb(56, 117, 231);
-    height: 50px;
-    align-items: center;
+    
+    margin-right: 12px;
+    display: flex;
+    padding: 16px;
     margin-top: 20px;
    
     pointer-events: none;
@@ -45,6 +47,6 @@
 .text{
     background-color: transparent;
     justify-content: center;
-    
+    display: flex;
     pointer-events: none;
 }

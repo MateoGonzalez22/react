@@ -6,7 +6,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
-
+import {theme} from "../utils/theme"
 
 export default function DialogPage(socio) {
 
@@ -18,9 +18,9 @@ export default function DialogPage(socio) {
 
         let editComponent =
             <div style={{ justifyContent: "center", background: "white" }}>
-                <DialogTitle style={{ top: "2px", left: "2px" }}>Edicion</DialogTitle>
+                <DialogTitle sx={{top: "2px", left:"2px", bgcolor: theme.palette.blanco.crema}}>Edicion</DialogTitle>
 
-                <DialogContent style={{justifyContent: "center"}}>
+                <DialogContent sx={{pointerEvents: "none", marginTop: "20px", justifyContent: "center"}}>
 
                     <Grid container spacing={4} direction="row" >
 
@@ -161,9 +161,9 @@ export default function DialogPage(socio) {
     let normalComponent =
 
         <div style={{ justifyContent: "center", background: "white" }}>
-            <DialogTitle style={{ top: "2px", left: "2px" }}>{socio.nombre} {socio.apellido}</DialogTitle>
+            <DialogTitle sx={{top: "2px", left: "2px", bgcolor: theme.palette.blanco.crema}}>{socio.nombre} {socio.apellido}</DialogTitle>
 
-            <DialogContent>
+            <DialogContent sx={{pointerEvents: "none", marginTop: "20px"}}>
 
                 <Grid container direction="row" spacing={4}>
 

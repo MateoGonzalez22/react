@@ -6,10 +6,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import DialogPage from "./DialogPage";
 import CloseIcon from '@mui/icons-material/Close';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { theme } from "../utils/theme"
 
 
 
 export default function List() {
+
+
     const users = data
     const [search, setSearch] = useState("")
     const [lista, setLista] = useState()
@@ -27,24 +30,24 @@ export default function List() {
     }
 
     const handleKeyPress = (e) => {
-        if(e.keyCode === 13){
+        if (e.keyCode === 13) {
             e.preventDefault()
             showUsers(search)
         }
     }
 
 
-    function whatToSearch(search){
+    function whatToSearch(search) {
 
         if (search.length == 0) return "all"
 
-        if(search.search(" ") >= 1){
+        if (search.search(" ") >= 1) {
             var array = search.split(" ")
             return array
         }
-    
-        else if(!isNaN(search)) return "dni"
-    
+
+        else if (!isNaN(search)) return "dni"
+
         return "nombre"
 
     }
@@ -52,38 +55,46 @@ export default function List() {
 
     function showUsers(search) {
 
-        
+
         const listaSocios =
 
 
-            <Paper style={{ maxHeight: "73vh", overflow: "auto", marginTop: "" }}>
+            <Paper style={{ maxHeight: "73vh", overflow: "auto", width: "70vw" }}>
 
                 {users.map(user => {
 
                     var queBuscar = whatToSearch(search)
 
-                    if(queBuscar.length == 2){
+                    if (queBuscar.length == 2) {
                         console.log("entro a == 2")
-                        if(user.nombre != queBuscar[0] && user.apellido != queBuscar[1]) return null
-                        
-                    }else if(queBuscar == "dni"){
+                        if (user.nombre != queBuscar[0] && user.apellido != queBuscar[1]) return null
+
+                    } else if (queBuscar == "dni") {
                         console.log("entro a == dni")
                         if (user.dni != search) return null
-                    }else if(queBuscar == "nombre"){                        
+                    } else if (queBuscar == "nombre") {
                         if (user.nombre != search) return null
                     }
-
+                    //
 
                     return (
                         <div>
 
-                            <Box sx={{ flexGrow: 1 }} className="box" onClick={() => handleOpen(user)}>
+                            <Box sx={{
+                                flexGrow: 1,
+                                bgcolor: theme.palette.blanco.main,
+                                "&:hover": { bgcolor: theme.palette.blanco.crema, borderRadius: "10px" },
+                                "&:active": { bgcolor: theme.palette.blanco.gris,  },
+                                justifyContent: "center"
+                            }}
+                                className="box"
+                                onClick={() => handleOpen(user)}>
 
                                 <Grid container spacing={2}>
 
                                     <Grid item xs={3} >
 
-                                        <Typography className="text">
+                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
                                             {user.nombre}
                                         </Typography>
 
@@ -91,7 +102,7 @@ export default function List() {
 
                                     <Grid item xs={3}>
 
-                                        <Typography className="text">
+                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
                                             {user.apellido}
                                         </Typography>
 
@@ -99,7 +110,7 @@ export default function List() {
 
                                     <Grid item xs={3}>
 
-                                        <Typography className="text">
+                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
                                             {user.dni}
                                         </Typography>
 
@@ -107,7 +118,7 @@ export default function List() {
 
                                     <Grid item xs={3}>
 
-                                        <Typography className="text">
+                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
                                             {user.fecha}
                                         </Typography>
 
@@ -132,10 +143,10 @@ export default function List() {
 
             <h1>Socios</h1>
 
-            <Grid container className="grid" spacing={4} style={{alignContent: "center"}}>
+            <Grid container className="grid" spacing={4} style={{ alignContent: "center" }}>
 
-                
-                <Grid item style={{marginBottom: "20px"}}>
+
+                <Grid item style={{ marginBottom: "20px" }}>
 
                     <Paper sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
                         <InputBase
@@ -154,48 +165,54 @@ export default function List() {
 
                 </Grid>
 
-                <Grid item style={{marginBottom: "20px", }}>
+                <Grid item style={{ marginBottom: "20px", }}>
 
 
-                    <Button variant="contained" style={{height: "50px", borderRadius: "30px"}}><AddCircleIcon/></Button>
+                    <Button variant="contained" style={{ height: "50px", borderRadius: "30px" }}><AddCircleIcon /></Button>
 
                 </Grid>
 
             </Grid>
 
-            <Box sx={{ flexGrow: 1 }} className="titulo" spacing={3}>
-                <Grid container spacing={2}>
+            <Paper sx={{bgcolor: theme.palette.azul.primary}}>
+                
+                <Box sx={{ flexGrow: 1 }} className="titulo" spacing={3}>
+                    <Grid container spacing={2}>
 
-                    <Grid item xs={3}>
-                        <div className="text">
-                            Nombre
-                        </div>
+                        <Grid item xs={3}>
+                            <Typography className="text">
+                                Nombre
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3} className="text" >
+                            <Typography>
+                                Apellido
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3} className="text">
+                            <Typography>DNI</Typography>
+                        </Grid>
+                        <Grid item xs={3} className="text">
+                            <Typography >
+                                Fecha Nac.
+                            </Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={3}>
-                        <div className="text">
-                            Apellido
-                        </div>
-                    </Grid>
-                    <Grid item xs={3} style={{justifyContent: "center"}}>
-                        <Typography className="text">DNI</Typography>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <div className="text">
-                            Fecha Nac.
-                        </div>
-                    </Grid>
-                </Grid>
 
-            </Box>
+                </Box>
 
-            {lista}
+                {lista}
+
+            </Paper>
+
+            
 
             <Dialog fullWidth={true} maxWidth="md" open={openDialog} onClose={handleClose}>
-                
-                <DialogActions style={{position: "absolute", top: "2px", right: "2px"}}>
+
+                <DialogActions style={{ position: "absolute", top: "2px", right: "2px" }}>
                     <Button onClick={handleClose}><CloseIcon style={{ fill: "black" }} /></Button>
                 </DialogActions>
-                 <DialogPage socio={socio}/> 
+                <DialogPage socio={socio} />
 
             </Dialog>
 

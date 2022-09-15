@@ -9,6 +9,7 @@ const theme = createTheme({
         },
         azul: {
             main: "#11468F",
+            primary: "#3875e7",
             marino: "#041562", 
             oscuro: "#1A132F",
             cielo: "#1A1A40",
@@ -31,6 +32,8 @@ const theme = createTheme({
         },
         blanco: {
             main: "#FFFFFF",
+            crema: "#DCE1E9",
+            gris: "#a5aebe"
         }
         
     }
