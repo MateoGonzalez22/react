@@ -313,17 +313,12 @@ export default function DialogPage(socio) {
 
         setComponente(normalComponent)
 
-
-
     }
-
-
 
 
     return <div>
 
         {componente}
-
 
     </div>
 

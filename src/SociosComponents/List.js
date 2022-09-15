@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { theme } from "../utils/theme"
 import {styles} from "../utils/styles"
+import AgregarSocio from "./AgregarSocio";
 
 
 
@@ -159,7 +160,7 @@ export default function List() {
 
                 <Grid item style={{ }}>
 
-                    <Button variant="contained" style={{ height: "50px", borderRadius: "30px" }}><AddCircleIcon /></Button>
+                    <AgregarSocio/>
 
                 </Grid>
 

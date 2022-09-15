@@ -41,7 +41,6 @@ export const styles =
                 width: "70vw"
             },
 
-
         },
 
         div: {
@@ -53,12 +52,6 @@ export const styles =
 
         },
 
-
-
-
-
     }
-
-
 
 }
