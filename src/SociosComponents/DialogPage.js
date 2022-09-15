@@ -289,7 +289,7 @@ export default function DialogPage(socio) {
 
 
             <DialogActions>
-                <Button style={{ position: "absolute", top: "10px", right: "60px" }} onClick={() => handleEdit()}><EditIcon /></Button>
+                <Button style={{ position: "absolute", top: "10px", right: "80px", width: "10px"}} onClick={() => handleEdit()}><EditIcon /></Button>
                 {/* <Button><DeleteForeverIcon style={{ fill: "red" }} /></Button> */}
             </DialogActions>
 
