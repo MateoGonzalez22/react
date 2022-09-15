@@ -1,12 +1,16 @@
-import { Button, Box, Grid } from "@mui/material";
+import { Button, Box, Grid, ThemeProvider } from "@mui/material";
 import { hover } from "@testing-library/user-event/dist/hover";
 import List from "./SociosComponents/List";
 import "./App.css"
+import { theme } from "./utils/theme"
+
+
+
 
 function App() {
-    
 
-    return(
+
+    return (
 
         <div className="div">
 
@@ -14,16 +18,10 @@ function App() {
 
         </div>
 
-        
+
+
 
     )
-
-
-
-
-
-
-
 
 
 

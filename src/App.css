@@ -1,6 +1,6 @@
 .div{
     background-color: #2e2c2c;
-    height: 200vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -9,13 +9,16 @@
 
 .grid{
     align-items: center;
+    align-content: center;
 }
 
 .titulo{
-    background-color: burlywood;
-    border-radius: 20px;
-    padding: 16px;
-    margin-top: 10px;
+    background-color: rgb(56, 117, 231);
+    height: 50px;
+    align-items: center;
+    margin-top: 20px;
+   
+    pointer-events: none;
 }
 
 .box{
@@ -42,6 +45,6 @@
 .text{
     background-color: transparent;
     justify-content: center;
-    display: flex;
+    
     pointer-events: none;
 }

@@ -5,6 +5,7 @@ import "../App.css"
 import SearchIcon from '@mui/icons-material/Search';
 import DialogPage from "./DialogPage";
 import CloseIcon from '@mui/icons-material/Close';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 
 
@@ -29,7 +30,6 @@ export default function List() {
         if(e.keyCode === 13){
             e.preventDefault()
             showUsers(search)
-            
         }
     }
 
@@ -53,13 +53,10 @@ export default function List() {
     function showUsers(search) {
 
         
-
-
-
         const listaSocios =
 
 
-            <Paper style={{ maxHeight: "60vh", overflow: "auto", marginTop: "30px" }}>
+            <Paper style={{ maxHeight: "73vh", overflow: "auto", marginTop: "" }}>
 
                 {users.map(user => {
 
@@ -133,13 +130,12 @@ export default function List() {
 
         <div style={{ height: "100vh", width: "70vw" }}>
 
-            <Grid container className="grid" spacing={4} >
+            <h1>Socios</h1>
 
-                <Grid item>
-                    <h1>Socios</h1>
-                </Grid>
+            <Grid container className="grid" spacing={4} style={{alignContent: "center"}}>
 
-                <Grid item>
+                
+                <Grid item style={{marginBottom: "20px"}}>
 
                     <Paper sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
                         <InputBase
@@ -158,6 +154,13 @@ export default function List() {
 
                 </Grid>
 
+                <Grid item style={{marginBottom: "20px", }}>
+
+
+                    <Button variant="contained" style={{height: "50px", borderRadius: "30px"}}><AddCircleIcon/></Button>
+
+                </Grid>
+
             </Grid>
 
             <Box sx={{ flexGrow: 1 }} className="titulo" spacing={3}>
@@ -173,10 +176,8 @@ export default function List() {
                             Apellido
                         </div>
                     </Grid>
-                    <Grid item xs={3}>
-                        <div className="text">
-                            DNI
-                        </div>
+                    <Grid item xs={3} style={{justifyContent: "center"}}>
+                        <Typography className="text">DNI</Typography>
                     </Grid>
                     <Grid item xs={3}>
                         <div className="text">
@@ -189,13 +190,12 @@ export default function List() {
 
             {lista}
 
-            <Dialog fullWidth={true} maxWidth="xl" open={openDialog} onClose={handleClose}>
+            <Dialog fullWidth={true} maxWidth="md" open={openDialog} onClose={handleClose}>
                 
                 <DialogActions style={{position: "absolute", top: "2px", right: "2px"}}>
                     <Button onClick={handleClose}><CloseIcon style={{ fill: "black" }} /></Button>
                 </DialogActions>
                  <DialogPage socio={socio}/> 
-                
 
             </Dialog>
 
