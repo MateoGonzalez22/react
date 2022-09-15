@@ -2,9 +2,10 @@ import { Button, Box, Grid, ThemeProvider } from "@mui/material";
 import { hover } from "@testing-library/user-event/dist/hover";
 import List from "./SociosComponents/List";
 import "./App.css"
-import { theme } from "./utils/theme"
+import {styles} from "./utils/styles"
+import {theme} from "./utils/theme"
 import WebFont from 'webfontloader';
-import { useEffect } from "react";
+import {useEffect} from "react";
 
 
 
@@ -21,7 +22,7 @@ function App() {
 
     return (
 
-        <div className="div">
+        <div style={styles.socios.div}>
 
             <List/>
 

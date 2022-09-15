@@ -7,6 +7,7 @@ import DialogPage from "./DialogPage";
 import CloseIcon from '@mui/icons-material/Close';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { theme } from "../utils/theme"
+import {styles} from "../utils/styles"
 
 
 
@@ -59,7 +60,7 @@ export default function List() {
         const listaSocios =
 
 
-            <Paper style={{ maxHeight: "73vh", overflow: "auto", width: "70vw" }}>
+            <Paper style={styles.socios.lista.paper}>
 
                 {users.map(user => {
 
@@ -80,21 +81,15 @@ export default function List() {
                     return (
                         <div>
 
-                            <Box sx={{
-                                flexGrow: 1,
-                                bgcolor: theme.palette.blanco.main,
-                                "&:hover": { bgcolor: theme.palette.blanco.crema, borderRadius: "10px" },
-                                "&:active": { bgcolor: theme.palette.blanco.gris,  },
-                                justifyContent: "center"
-                            }}
-                                className="box"
+                            <Box sx={styles.socios.lista.box}
+                                
                                 onClick={() => handleOpen(user)}>
 
                                 <Grid container spacing={2}>
 
                                     <Grid item xs={3} >
 
-                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
+                                        <Typography sx={styles.socios.text}>
                                             {user.nombre}
                                         </Typography>
 
@@ -102,7 +97,7 @@ export default function List() {
 
                                     <Grid item xs={3}>
 
-                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
+                                        <Typography sx={styles.socios.text}>
                                             {user.apellido}
                                         </Typography>
 
@@ -110,7 +105,7 @@ export default function List() {
 
                                     <Grid item xs={3}>
 
-                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
+                                        <Typography sx={styles.socios.text}>
                                             {user.dni}
                                         </Typography>
 
@@ -118,7 +113,7 @@ export default function List() {
 
                                     <Grid item xs={3}>
 
-                                        <Typography className="text" sx={{fontFamily: "Roboto"}}>
+                                        <Typography sx={styles.socios.text}>
                                             {user.fecha}
                                         </Typography>
 
@@ -139,14 +134,11 @@ export default function List() {
 
     return (
 
-        <div style={{ height: "100vh", width: "70vw" }}>
+        <div style={{ height: "95vh", width: "70vw", marginTop: "20px"}}>
 
-            <h1>Socios</h1>
+            <Grid container spacing={4}>
 
-            <Grid container className="grid" spacing={4} style={{ alignContent: "center" }}>
-
-
-                <Grid item style={{ marginBottom: "20px" }}>
+                <Grid item style={{}}>
 
                     <Paper sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
                         <InputBase
@@ -165,8 +157,7 @@ export default function List() {
 
                 </Grid>
 
-                <Grid item style={{ marginBottom: "20px", }}>
-
+                <Grid item style={{ }}>
 
                     <Button variant="contained" style={{ height: "50px", borderRadius: "30px" }}><AddCircleIcon /></Button>
 
@@ -176,23 +167,23 @@ export default function List() {
 
             <Paper sx={{bgcolor: theme.palette.azul.primary}}>
                 
-                <Box sx={{ flexGrow: 1 }} className="titulo" spacing={3}>
+                <Box sx={styles.socios.titulo} spacing={3}>
                     <Grid container spacing={2}>
 
                         <Grid item xs={3}>
-                            <Typography className="text">
+                            <Typography sx={styles.socios.text}>
                                 Nombre
                             </Typography>
                         </Grid>
-                        <Grid item xs={3} className="text" >
+                        <Grid item xs={3} sx={styles.socios.text} >
                             <Typography>
                                 Apellido
                             </Typography>
                         </Grid>
-                        <Grid item xs={3} className="text">
+                        <Grid item xs={3} sx={styles.socios.text}>
                             <Typography>DNI</Typography>
                         </Grid>
-                        <Grid item xs={3} className="text">
+                        <Grid item xs={3} sx={styles.socios.text}>
                             <Typography >
                                 Fecha Nac.
                             </Typography>
