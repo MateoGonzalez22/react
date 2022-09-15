@@ -5,22 +5,30 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import {theme} from "../utils/theme"
+import data from "../utils/data.json"
+
+const initialValues = {
+    nombre: "",
+    apellido: "",
+    dni: 0,
+    fecha: "",
+    direccion: "",
+    telefono: "",
+    mail: "",
+    fechaVencCert: "",
+}
 
 export default function AgregarSocio() {
     
-
     const [openDialog, setOpenDialog] = useState(false)
-    const [sociosDatos, setSociosDatos] = useState()
-
-    const socio = {
-        nombre: "",
-        apellido: "",
-        dni: 1,
-        fecha: "",
-        direccion: "",
-        telefono: 1,
-        mail: "",
-        fechaVencCert: ""
+    const [values, setValues] = useState(initialValues)
+    
+    const handleInputChange = (e) => {
+        const {name, value} = e.target
+        setValues({
+            ...values,
+            [name]: value,
+        })
     }
 
     const handleOpen = () => {
@@ -32,19 +40,14 @@ export default function AgregarSocio() {
         setOpenDialog(false)
     }
 
-    const handleChange = (objeto, value) => {
-        switch (objeto) {
-            case "nombre":
-                socio.nombre = value
-                break;
-        
-            default:
-                break;
-        }
-        
-    }
+    const agregarSocio = () => {
 
-    handleChange("nombre")
+        //axios.post a la api
+
+        data[data.length + 1] = values
+
+        console.log(data[data.length + 1])
+    }
 
     return (
         <>
@@ -54,7 +57,7 @@ export default function AgregarSocio() {
                 <div style={{ justifyContent: "center", background: "white" }}>
                     <DialogTitle sx={{ top: "2px", left: "2px", bgcolor: theme.palette.blanco.crema }}>Edicion</DialogTitle>
 
-                    <DialogContent sx={{ pointerEvents: "none", marginTop: "20px", justifyContent: "center" }}>
+                    <DialogContent sx={{ marginTop: "20px", justifyContent: "center" }}>
 
                         <Grid container spacing={4} direction="row" >
 
@@ -66,7 +69,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined" value={socio.nombre} onChange={(e) => handleChange("nombre", e.target.value)}></TextField>
+                                        <TextField size="small" variant="outlined" name="nombre" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -80,7 +83,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined"></TextField>
+                                        <TextField size="small" variant="outlined" name="apellido" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -96,7 +99,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined" ></TextField>
+                                        <TextField size="small" variant="outlined" name="dni" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -112,7 +115,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined"></TextField>
+                                        <TextField size="small" variant="outlined" name="fecha" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -126,7 +129,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined" ></TextField>
+                                        <TextField size="small" variant="outlined" name="direccion" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -140,7 +143,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined" ></TextField>
+                                        <TextField size="small" variant="outlined" name="telefono" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -154,7 +157,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined"></TextField>
+                                        <TextField size="small" variant="outlined" name="mail" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -168,7 +171,7 @@ export default function AgregarSocio() {
                                     </Grid>
 
                                     <Grid item >
-                                        <TextField size="small" variant="outlined" ></TextField>
+                                        <TextField size="small" variant="outlined" name="fechaVencCert" onChange={handleInputChange}></TextField>
                                     </Grid>
 
                                 </Grid>
@@ -182,7 +185,7 @@ export default function AgregarSocio() {
                     <DialogActions>
                         <Button ><ClearIcon sx={{fill: "red"}} onClick={() => handleClose()}/></Button>
 
-                        <Button><CheckIcon  /></Button>
+                        <Button><CheckIcon onClick={() => agregarSocio(values)}/></Button>
                     </DialogActions>
 
 

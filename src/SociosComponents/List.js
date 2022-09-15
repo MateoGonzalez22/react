@@ -68,11 +68,11 @@ export default function List() {
                     var queBuscar = whatToSearch(search)
 
                     if (queBuscar.length == 2) {
-                        console.log("entro a == 2")
+                        
                         if (user.nombre != queBuscar[0] && user.apellido != queBuscar[1]) return null
 
                     } else if (queBuscar == "dni") {
-                        console.log("entro a == dni")
+                        
                         if (user.dni != search) return null
                     } else if (queBuscar == "nombre") {
                         if (user.nombre != search) return null
