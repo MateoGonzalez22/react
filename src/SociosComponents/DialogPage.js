@@ -197,8 +197,7 @@ export default function DialogPage(socio) {
 
             <DialogContent sx={{pointerEvents: "none", marginTop: "20px"}}>
 
-                <Grid container direction="row" spacing={4}>
-
+                <Grid container direction="row" spacing={4} >
                     <Grid item xs={12} sm={6} md={4} lg={4} style={{}}>
                         <Grid container direction="column" style={{}} spacing={1}>
 

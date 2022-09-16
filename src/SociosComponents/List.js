@@ -63,7 +63,7 @@ export default function List() {
 
             <Paper style={styles.socios.lista.paper}>
 
-                {users.map(user => {
+                {users.map((user, index )=> {
 
                     var queBuscar = whatToSearch(search)
 
@@ -80,7 +80,7 @@ export default function List() {
                     //
 
                     return (
-                        <div>
+                        <div key={index}>
 
                             <Box sx={styles.socios.lista.box}
                                 
