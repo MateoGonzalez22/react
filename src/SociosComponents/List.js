@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 import data from "../utils/data.json"
 import "../App.css"
 import SearchIcon from '@mui/icons-material/Search';
-import DialogPage from "./DialogPage";
+import ShowSocio from "./Socio/ShowSocio";
 import CloseIcon from '@mui/icons-material/Close';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { theme } from "../utils/theme"
@@ -204,7 +204,7 @@ export default function List() {
                 <DialogActions style={{ position: "absolute", top: "2px", right: "2px" }}>
                     <Button onClick={handleClose}><CloseIcon style={{ fill: "black" }} /></Button>
                 </DialogActions>
-                <DialogPage socio={socio} />
+                <ShowSocio socio={socio} handleClose={handleClose}/>
 
             </Dialog>
 

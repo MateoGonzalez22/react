@@ -28,81 +28,51 @@ function App() {
 
         </div>
 
-
-
-
     )
 
-
-
-
-
-
-
-    /*
-    console.log(data.usuarios)
-
-    const style = 
-
-    {
-        div:{
-            background: "lightBlue",
-            padding: "10px",
-            textAlign: "center",
-            
-        },
-        box:{
-            justifyContent: "center",
-            display: "flex",
-            marginTop: "20px"
-        }
-    }
-
-
-    return (
-
-        <Box sx={{flexGrow: 1}} style={style.box}>
-            
-            <Grid container spacing={2}>
-
-                <Grid item xs={3} md={2}>
-
-                    <div style={style.div}>
-                        Nombre
-                    </div>
-
-
-                </Grid>
-
-                <Grid item xs={3} md={2}>
-
-                    <div style={style.div}>
-                        Apellido
-                    </div>
-
-
-                </Grid>
-
-                <Grid item xs={3} md={2}>
-
-                    <div style={style.div}>
-                        DNI
-                    </div>
-
-                </Grid>
-
-                <Grid item xs={3} md={2}>
-
-                    <div style={style.div}>
-                        Fecha Nacimiento
-                    </div>
-
-                </Grid>
-
-            </Grid>
-
-        </Box>
-    )*/
 }
 
 export default App;
+
+
+
+
+
+// import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material"
+// import { useState } from "react"
+// import { Child } from "./Child"
+
+// export default function App(){
+// 	const [open, setOpen] = useState(false)
+// 	function handleClick(){
+// 		console.log("AAAAAAAAAAAAAAAA")
+// 	}
+
+
+// 	function handleOpen(){
+// 		setOpen(true)
+// 	}
+
+// 	function handleClose(){
+// 		setOpen(false)
+// 	}
+
+// 	return(
+// 		<>
+// 			<Button onClick={handleOpen}>Abrir</Button>
+
+// 			<Dialog fullWidth={true} open={open} onClose={handleClose}>
+
+// 				<DialogTitle>
+// 					Edicion
+// 				</DialogTitle>
+// 				<DialogActions>
+// 					<Child handleClick={handleClose}/>
+// 				</DialogActions>
+// 			</Dialog>
+
+// 		</>
+
+// 	)
+
+// }

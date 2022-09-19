@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextField, Typography } from "@mui/material";
+/*import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import data from "../utils/data.json"
 import CloseIcon from '@mui/icons-material/Close';
@@ -321,7 +321,7 @@ export default function DialogPage(socio) {
 
             <DialogActions>
                 <Button style={{ position: "absolute", top: "10px", right: "80px", width: "10px"}} onClick={() => handleEdit()}><EditIcon /></Button>
-                {/* <Button><DeleteForeverIcon style={{ fill: "red" }} /></Button> */}
+                //<Button><DeleteForeverIcon style={{ fill: "red" }} /></Button> 
             </DialogActions>
 
 
@@ -355,3 +355,4 @@ export default function DialogPage(socio) {
     </div>
 
 }
+*/
