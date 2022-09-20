@@ -7,19 +7,79 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import {theme} from "../../utils/theme"
-import EditSocio from "./EditSocio";
+import { styles } from "../../utils/styles";
+
+
 
 
 export default function ShowSocio({socio, handleClose}){
     
+    const [edit, setEdit] = useState(false)
+
+    const handleEdit = () => {
+
+        setEdit(true)
+
+    }
+
+    const initialValues = {
+        nombre: socio.nombre,
+        apellido: socio.apellido,
+        dni: socio.dni,
+        fecha: socio.fecha,
+        direccion: socio.direccion,
+        telefono: socio.telefono,
+        mail: socio.mail,
+        fechaVencCert: socio.fechaVencCert,
+    }
+    
+
+    const [values, setValues] = useState(initialValues)
+
+    
+    
+    const handleInputChange = (e) => {
+        const {name, value} = e.target
+        setValues({
+            ...values,
+            [name]: value,
+        })
+    }
+
+
+    const cancelEdit = () => {
+
+        setEdit(false)
+
+    }
+
+    const saveEdit = () => {
+        console.log(values)
+        alert("Cambios guardados")
+        //---------- Guardar cambios en sql ---------//
+
+        handleClose()
+    }
+
+    const deleteSocio = () => {
+        //eliminar socio
+    }
+
+    const editButtons = 
+        <div>
+            <Button onClick={deleteSocio} ><DeleteForeverIcon style={{ fill: "red"}} sx={styles.socios.edicion.buttons} titleAccess="Eliminar socio"/></Button>
+            <Button onClick={() => cancelEdit()} ><ClearIcon style={{ fill: "red" }} sx={styles.socios.edicion.buttons} titleAccess="Cancelar"/></Button> 
+            <Button onClick={() => saveEdit(values)} ><CheckIcon sx={styles.socios.edicion.buttons} titleAccess="Cancelar"/></Button>
+        </div> 
 
     
     return(
 
         <div style={{ justifyContent: "center", background: "white" }}>
-            <DialogTitle sx={{top: "2px", left: "2px", bgcolor: theme.palette.blanco.crema}}>{socio.nombre} {socio.apellido}</DialogTitle>
+            {!edit && <DialogTitle sx={{top: "2px", left: "2px", bgcolor: theme.palette.blanco.crema}}>Datos Personales del Socio</DialogTitle>}
+            {edit && <DialogTitle sx={{top: "2px", left: "2px", bgcolor: theme.palette.blanco.crema}}>Edicion Socio</DialogTitle>}
 
-            <DialogContent sx={{pointerEvents: "none", marginTop: "20px"}}>
+            <DialogContent sx={{marginTop: "20px"}}>
 
                 <Grid container direction="row" spacing={4} >
                     <Grid item xs={12} sm={6} md={4} lg={4} style={{}}>
@@ -30,7 +90,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.nombre}</Typography>
+                                {!edit && <Typography >{socio.nombre}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.nombre} name="nombre" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -44,7 +105,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.apellido}</Typography>
+                                {!edit && <Typography >{socio.apellido}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.apellido} name="apellido" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -60,7 +122,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.dni}</Typography>
+                                {!edit && <Typography >{socio.dni}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.dni} name="dni" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -76,7 +139,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.fecha}</Typography>
+                                {!edit && <Typography >{socio.fecha}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.fecha} name="fecha" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -90,7 +154,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.direccion}</Typography>
+                                {!edit && <Typography >{socio.direccion}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.direccion} name="direccion" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -104,7 +169,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.telefono}</Typography>
+                                {!edit && <Typography >{socio.telefono}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.telefono} name="telefono" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -118,7 +184,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.mail}</Typography>
+                                {!edit && <Typography >{socio.mail}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.mail} name="mail" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -132,7 +199,8 @@ export default function ShowSocio({socio, handleClose}){
                             </Grid>
 
                             <Grid item >
-                                <Typography >{socio.fechaVencCert}</Typography>
+                                {!edit && <Typography >{socio.fechaVencCert}</Typography>}
+                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.fechaVencCert} name="fechaVencCert" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -143,9 +211,10 @@ export default function ShowSocio({socio, handleClose}){
             </DialogContent>
 
 
-            <DialogActions>
-                <EditSocio socio={socio} handleClose={handleClose}/>
-                <Button><DeleteForeverIcon style={{ fill: "red" }} /></Button>
+            <DialogActions sx={{justifyContent: "flex-end"}}>
+                {!edit && <Button style={{ position: "absolute", top: "10px", right: "80px", width: "10px"}} onClick={handleEdit}><EditIcon /></Button>}
+                {edit && editButtons}
+                
             </DialogActions>
 
 

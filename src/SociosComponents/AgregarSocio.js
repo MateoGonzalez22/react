@@ -8,6 +8,7 @@ import {theme} from "../utils/theme"
 import data from "../utils/data.json"
 
 import axios from "axios"
+import { styles } from "../utils/styles";
 
 const initialValues = {
     nombre: "",
@@ -58,11 +59,11 @@ export default function AgregarSocio() {
 
     return (
         <>
-            <Button variant="contained" style={{ height: "50px", borderRadius: "30px" }} onClick={() => handleOpen()}><AddCircleIcon /></Button>
+            <Button variant="inherit" style={{ height: "50px" }} onClick={() => handleOpen()}><AddCircleIcon style={{height: "30px", width: "30px", fill: theme.palette.azul.primary}}/></Button>
 
             <Dialog fullWidth={true} maxWidth="md" open={openDialog} onClose={handleClose}>
                 <div style={{ justifyContent: "center", background: "white" }}>
-                    <DialogTitle sx={{ top: "2px", left: "2px", bgcolor: theme.palette.blanco.crema }}>Edicion</DialogTitle>
+                    <DialogTitle sx={{ top: "2px", left: "2px", bgcolor: theme.palette.blanco.crema }}>Agregar Socio</DialogTitle>
 
                     <DialogContent sx={{ marginTop: "20px", justifyContent: "center" }}>
 
@@ -190,9 +191,9 @@ export default function AgregarSocio() {
 
 
                     <DialogActions>
-                        <Button ><ClearIcon sx={{fill: "red"}} onClick={() => handleClose()}/></Button>
+                        <Button ><ClearIcon style={{fill: "red"}} onClick={() => handleClose()} sx={styles.socios.edicion.buttons} titleAccess="Cancelar"/></Button>
 
-                        <Button><CheckIcon onClick={() => agregarSocio(values)}/></Button>
+                        <Button><CheckIcon onClick={() => agregarSocio(values)} sx={styles.socios.edicion.buttons} titleAccess="Guardar cambios"/></Button>
                     </DialogActions>
 
 

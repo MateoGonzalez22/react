@@ -5,6 +5,20 @@ export const styles =
 {
     socios: {
 
+        edicion:{
+
+            buttons:{
+
+                padding: "5px",
+
+                "&:hover": { 
+                    bgcolor: theme.palette.blanco.crema,
+                    borderRadius: "5px"
+                }
+            }
+
+        },
+
         titulo: {
             flexGrow: 1,
             marginRight: "12px",
@@ -27,7 +41,7 @@ export const styles =
 
             box: {
                 backgroundColor: theme.palette.blanco.main,
-                "&:hover": { bgcolor: theme.palette.blanco.crema, borderRadius: "20px" },
+                "&:hover": { bgcolor: theme.palette.blanco.crema, borderRadius: "2px" },
                 "&:active": { bgcolor: theme.palette.blanco.gris },
                 justifyContent: "center",
                 padding: "16px",
