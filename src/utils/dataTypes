@@ -1,0 +1,15 @@
+[
+    '{{repeat(200, 200)}}',
+    {
+      id:'{{index()}}',
+      nombre: '{{firstName()}}',
+      apellido: '{{surname()}}',
+      dni: '{{integer(11111111, 99999999)}}',
+      direccion: '{{street()}} {{integer(100, 9999)}}',
+      fechaNacimiento: '{{integer(1950, 2022)}}-{{integer(1, 12)}}-{{integer(1, 29)}}',
+      fechaEntregaCertificadoMedico: '{{integer(2021, 2022)}}-{{integer(1, 12)}}-{{integer(1, 29)}}',
+      telefono: '+54(11){{integer(11111111, 99999999)}}',
+      mail: '{{email()}}'
+      
+    }
+  ]

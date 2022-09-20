@@ -1,7 +1,5 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextField, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import data from "../../utils/data.json"
-import CloseIcon from '@mui/icons-material/Close';
+import { Button, DialogActions, DialogContent, DialogTitle, Grid, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CheckIcon from '@mui/icons-material/Check';
@@ -9,6 +7,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import {theme} from "../../utils/theme"
 import { styles } from "../../utils/styles";
 
+import MuiPhoneNumber from 'material-ui-phone-number';
+  
 
 
 
@@ -40,24 +40,21 @@ export default function ShowSocio({socio, handleClose}){
     
     const handleInputChange = (e) => {
         const {name, value} = e.target
-        setValues({
-            ...values,
-            [name]: value,
-        })
+            setValues({
+                ...values,
+                [name]: value,
+            })
     }
 
 
     const cancelEdit = () => {
-
         setEdit(false)
-
     }
 
     const saveEdit = () => {
         console.log(values)
         alert("Cambios guardados")
         //---------- Guardar cambios en sql ---------//
-
         handleClose()
     }
 
@@ -69,7 +66,7 @@ export default function ShowSocio({socio, handleClose}){
         <div>
             <Button onClick={deleteSocio} ><DeleteForeverIcon style={{ fill: "red"}} sx={styles.socios.edicion.buttons} titleAccess="Eliminar socio"/></Button>
             <Button onClick={() => cancelEdit()} ><ClearIcon style={{ fill: "red" }} sx={styles.socios.edicion.buttons} titleAccess="Cancelar"/></Button> 
-            <Button onClick={() => saveEdit(values)} ><CheckIcon sx={styles.socios.edicion.buttons} titleAccess="Cancelar"/></Button>
+            <Button onClick={() => saveEdit(values)} ><CheckIcon sx={styles.socios.edicion.buttons} titleAccess="Guardar cambios"/></Button>
         </div> 
 
     
@@ -123,7 +120,7 @@ export default function ShowSocio({socio, handleClose}){
 
                             <Grid item >
                                 {!edit && <Typography >{socio.dni}</Typography>}
-                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.dni} name="dni" onChange={handleInputChange}></TextField>}
+                                {edit && <TextField size="small" variant="outlined" type="number" defaultValue={socio.dni} name="dni" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -140,7 +137,7 @@ export default function ShowSocio({socio, handleClose}){
 
                             <Grid item >
                                 {!edit && <Typography >{socio.fecha}</Typography>}
-                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.fecha} name="fecha" onChange={handleInputChange}></TextField>}
+                                {edit && <TextField size="small" variant="outlined" type="date" defaultValue={socio.fecha} name="fecha" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -170,7 +167,8 @@ export default function ShowSocio({socio, handleClose}){
 
                             <Grid item >
                                 {!edit && <Typography >{socio.telefono}</Typography>}
-                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.telefono} name="telefono" onChange={handleInputChange}></TextField>}
+                                {/* {edit && <TextField size="small" variant="outlined" type="tel" defaultValue={socio.telefono} name="telefono" onChange={handleInputChange}></TextField>} */}
+                                {edit && <MuiPhoneNumber defaultCountry={'ar'} name="telefono" regions={['south-america']} onChange={(e) => {handleInputChange({target:{value: e,name: "telefono"}})}}/>}
                             </Grid>
 
                         </Grid>
@@ -185,7 +183,7 @@ export default function ShowSocio({socio, handleClose}){
 
                             <Grid item >
                                 {!edit && <Typography >{socio.mail}</Typography>}
-                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.mail} name="mail" onChange={handleInputChange}></TextField>}
+                                {edit && <TextField size="small" variant="outlined" type="email" defaultValue={socio.mail} name="mail" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>
@@ -200,7 +198,7 @@ export default function ShowSocio({socio, handleClose}){
 
                             <Grid item >
                                 {!edit && <Typography >{socio.fechaVencCert}</Typography>}
-                                {edit && <TextField size="small" variant="outlined" defaultValue={socio.fechaVencCert} name="fechaVencCert" onChange={handleInputChange}></TextField>}
+                                {edit && <TextField size="small" variant="outlined" type="date" defaultValue={socio.fechaVencCert} name="fechaVencCert" onChange={handleInputChange}></TextField>}
                             </Grid>
 
                         </Grid>

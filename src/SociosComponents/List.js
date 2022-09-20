@@ -1,5 +1,5 @@
 import { Button, Card, Typography, Box, Grid, Link, TextField, Paper, Divider, IconButton, InputBase, Dialog, DialogActions, DialogTitle } from "@mui/material";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import data from "../utils/data.json"
 import "../App.css"
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,6 +9,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { theme } from "../utils/theme"
 import {styles} from "../utils/styles"
 import AgregarSocio from "./AgregarSocio";
+import axios from "axios";
 
 
 
@@ -20,7 +21,15 @@ export default function List() {
     const [lista, setLista] = useState()
     const [socio, setSocio] = useState()
 
+    // const [data, setData] = useState(null)
+
     const [openDialog, setOpenDialog] = useState(false)
+
+
+    // useEffect(() => {
+    //     axios.get("http://localhost:3000/socios")
+    //     .then()
+    // }, [])
 
     const handleOpen = (user) => {
         setSocio(user)
@@ -54,6 +63,9 @@ export default function List() {
 
     }
 
+    
+
+
 
     function showUsers(search) {
 
@@ -67,15 +79,15 @@ export default function List() {
 
                     var queBuscar = whatToSearch(search)
 
-                    if (queBuscar.length == 2) {
+                    if (queBuscar.length === 2) {
                         
-                        if (user.nombre != queBuscar[0] && user.apellido != queBuscar[1]) return null
+                        if (user.nombre !== queBuscar[0] && user.apellido != queBuscar[1]) return null
 
-                    } else if (queBuscar == "dni") {
+                    } else if (queBuscar === "dni") {
                         
                         if (user.dni != search) return null
-                    } else if (queBuscar == "nombre") {
-                        if (user.nombre != search) return null
+                    } else if (queBuscar === "nombre") {
+                        if (user.nombre !== search) return null
                     }
                     //
 

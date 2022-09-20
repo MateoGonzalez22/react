@@ -1,13 +1,13 @@
 import { Dialog, DialogActions, Button, DialogTitle, Grid, Typography, TextField, DialogContent } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import {theme} from "../utils/theme"
-import data from "../utils/data.json"
 
-import axios from "axios"
+
+//import axios from "axios"
 import { styles } from "../utils/styles";
 
 const initialValues = {
@@ -22,8 +22,6 @@ const initialValues = {
 }
 
 export default function AgregarSocio() {
-
-
     
     
     const [openDialog, setOpenDialog] = useState(false)
